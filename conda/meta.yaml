@@ -26,7 +26,7 @@ outputs:
     build:
       #   string: "h{{ PKG_HASH }}_{{ number }}"
       run_exports:
-        - {{ pin_compatible('changme', exact=True) }}
+        - {{ pin_compatible('bluebird', exact=True) }}
     requirements:
       build:
         - {{ compiler('cxx') }}
