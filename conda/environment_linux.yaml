@@ -1,0 +1,13 @@
+name: tradas-dev
+channels:
+  - conda-forge
+  - defaults
+  - titan-search
+dependencies:
+  - gcc
+  - gxx
+  - sysroot_linux-64=2.17 # [linux]
+  - turbo
+  - gtest
+  - gmock
+  - benchmark
