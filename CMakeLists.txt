@@ -93,7 +93,7 @@ install(DIRECTORY ${PROJECT_NAME}
         PATTERN "*.h"
         )
 
-install(DIRECTORY ${PROJECT_BINARY_DIR}/tedis
+install(DIRECTORY ${PROJECT_BINARY_DIR}/${PROJECT_NAME}
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
         FILES_MATCHING
         PATTERN "*.inc"
@@ -137,7 +137,7 @@ configure_package_config_file(
 #Targets:
 #  * <prefix>/lib/libbar.a
 #  * <prefix>/lib/libbaz.a
-#  * header location after install: <prefix>/include/foo/Bar.hpp
+#  * header location after install: <prefix>/include/foo/Bar.h
 #  * headers can be included by C++ code `#include <foo/Bar.h"`
 
 

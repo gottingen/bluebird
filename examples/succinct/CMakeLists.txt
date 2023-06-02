@@ -1,11 +1,11 @@
 #
-# Copyright 2023 The titan-search Authors.
+# Copyright 2023 The Turbo Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#    https://www.apache.org/licenses/LICENSE-2.0
+#      https://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,5 +14,17 @@
 # limitations under the License.
 #
 
-add_subdirectory(bits)
-add_subdirectory(succinct)
+file(GLOB_RECURSE SRC "*.cc")
+foreach (JEX ${SRC})
+    get_filename_component(JEX_E ${JEX} NAME_WE)
+    carbin_cc_binary(
+            NAME
+            ${JEX_E}
+            SOURCES
+            ${JEX}
+            DEPS
+            bluebird::succinct
+            bluebird::divsufsort
+            bluebird::divsufsort64
+    )
+endforeach ()
