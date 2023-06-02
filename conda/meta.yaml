@@ -14,7 +14,7 @@ about:
   license: Apache License 2
   license_family: APACHE
   license_file: LICENSE
-  summary: A server based on faiss serving for vector search
+  summary: library implementing common using data structures for search
 
 source:
   git_url: ../
