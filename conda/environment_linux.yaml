@@ -1,4 +1,4 @@
-name: tradas-dev
+name: bluebird-dev
 channels:
   - conda-forge
   - defaults
