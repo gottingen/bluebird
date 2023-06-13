@@ -24,20 +24,17 @@ outputs:
     script: bld.sh   # [not win]
     script: bld.bat  # [win]
     build:
-      #   string: "h{{ PKG_HASH }}_{{ number }}"
+      string: "h{{ GIT_DESCRIBE_HASH }}_{{ number }}"
       run_exports:
         - {{ pin_compatible('bluebird', exact=True) }}
     requirements:
       build:
         - {{ compiler('cxx') }}
         - sysroot_linux-64 >=2.17  # [linux64]
-        - turbo
       host:
         - sysroot_linux-64 >=2.17  # [linux64]
-        - turbo
       run:
         - sysroot_linux-64 >=2.17  # [linux64]
-        - turbo
     test:
       commands:
         - test -f $PREFIX/lib/libbits.so              # [linux]
