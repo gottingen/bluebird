@@ -15,4 +15,3 @@
 #
 
 add_subdirectory(bits)
-add_subdirectory(succinct)
