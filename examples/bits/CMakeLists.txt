@@ -21,5 +21,5 @@ carbin_cc_binary(
         SOURCES
         "example.cc"
         DEPS
-        bluebird::bits
+        bluebird::bits_shared
 )
