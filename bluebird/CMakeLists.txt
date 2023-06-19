@@ -16,28 +16,60 @@
 
 file(GLOB_RECURSE ROAR_SRC "bits/roaring/*.c")
 
-carbin_cc_library(
-        NAMESPACE bluebird
-        NAME bits
-        SOURCES
-        ${ROAR_SRC}
-        COPTS
-        ${USER_CXX_FLAGS}
-        DEPS
-        ${CARBIN_DEPS_LINK}
-        PUBLIC
-)
+if (BUILD_STATIC_LIBRARY)
+    carbin_cc_library(
+            NAMESPACE bluebird
+            NAME bits
+            SOURCES
+            ${ROAR_SRC}
+            COPTS
+            ${USER_CXX_FLAGS}
+            DEPS
+            ${CARBIN_DEPS_LINK}
+            PUBLIC
+    )
 
-file(GLOB_RECURSE MAT_SRC "matcher/*.cc")
+    file(GLOB_RECURSE MAT_SRC "matcher/*.cc")
 
-carbin_cc_library(
-        NAMESPACE bluebird
-        NAME matcher
-        SOURCES
-        ${MAT_SRC}
-        COPTS
-        ${USER_CXX_FLAGS}
-        DEPS
-        ${CARBIN_DEPS_LINK}
-        PUBLIC
-)
+    carbin_cc_library(
+            NAMESPACE bluebird
+            NAME matcher
+            SOURCES
+            ${MAT_SRC}
+            COPTS
+            ${USER_CXX_FLAGS}
+            DEPS
+            ${CARBIN_DEPS_LINK}
+            PUBLIC
+    )
+endif ()
+
+if (BUILD_SHARED_LIBRARY)
+    carbin_cc_library(
+            NAMESPACE bluebird
+            NAME bits
+            SOURCES
+            ${ROAR_SRC}
+            COPTS
+            ${USER_CXX_FLAGS}
+            DEPS
+            ${CARBIN_DEPS_LINK}
+            SHARED
+            PUBLIC
+    )
+
+    file(GLOB_RECURSE MAT_SRC "matcher/*.cc")
+
+    carbin_cc_library(
+            NAMESPACE bluebird
+            NAME matcher
+            SOURCES
+            ${MAT_SRC}
+            COPTS
+            ${USER_CXX_FLAGS}
+            DEPS
+            ${CARBIN_DEPS_LINK}
+            SHARED
+            PUBLIC
+    )
+endif ()
